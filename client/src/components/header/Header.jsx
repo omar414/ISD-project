@@ -10,23 +10,36 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
 import useAuthCheck from "../../hooks/useAuthCheck.jsx";
 import { getMenuStyles } from "../../utils/common";
+import { Tilt } from "react-tilt";
+import { Text, Menu } from '@mantine/core'
+import AddPropertyModalForSale from "../AddPropertyModalForSale/AddPropertyModalForSale.jsx";
+
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
   const [modalOpened, setModalOpened] = useState(false);
+  const [modalOpenedForSale, setModalOpenedForSale] = useState(false);
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const { validateLogin } = useAuthCheck();
-  
+
   const handleAddPropertyClick = () => {
     if (validateLogin()) {
       setModalOpened(true);
     }
   };
+  const handleAddPropertyClickForSale = () => {
+    if (validateLogin()) {
+      setModalOpenedForSale(true);
+    }
+  };
+  
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter paddings innerWidth h-container">
         <NavLink to="/">
-          <img src="./logo.png" alt="logo" width={100} />
+          <Tilt>
+            <img className="logo1" src="./logoMD.png" alt="logo" width={100} />
+          </Tilt>
         </NavLink>
         <OutsideClickHandler
           onOutsideClick={() => {
@@ -34,20 +47,41 @@ const Header = () => {
           }}
         >
           <div className="flexCenter h-menu" style={getMenuStyles(menuOpened)}>
-            <NavLink to="/properties">Properties</NavLink>
+            <NavLink to="/Properties">Rent</NavLink>
 
-            <a href="mailto:omarsakkaamini@gmail.com">Contact</a>
+
+            <NavLink to="/PropertiesForSale">Buy</NavLink>
+
+
+            {/* <Link smooth={true} to="contacts" offset={-110} className="nav-link" >contacts</Link> */}
+            <a href="mailto:marealestaste40@gmail.com">Contact</a>
             {/* add property */}
-            <div onClick={handleAddPropertyClick} >Add Property</div>
-            <AddPropertyModal opened={modalOpened} setOpened={setModalOpened}/>
+
+            <Menu>
+              <Menu.Target>
+
+                <Text>Add Property</Text>
+
+              </Menu.Target>
+              <Menu.Dropdown className='dropdown-menue'>
+                <Menu.Item onClick={handleAddPropertyClick} >
+                  Add property to Rent
+                </Menu.Item>
+                <Menu.Item onClick={handleAddPropertyClickForSale}>
+                  Add property to Sell
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+            <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
+            <AddPropertyModalForSale opened={modalOpenedForSale} setOpened={setModalOpenedForSale}/>
             {/* login button */}
             {
               !isAuthenticated ?
-              <button className="button" onClick={loginWithRedirect}>
-                Login
-              </button>:(
-                <ProfileMenu user={user} logout={logout}/>
-              )
+                <button className="button" onClick={loginWithRedirect}>
+                  Login
+                </button> : (
+                  <ProfileMenu user={user} logout={logout} />
+                )
             }
           </div>
         </OutsideClickHandler>

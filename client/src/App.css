@@ -1,11 +1,11 @@
 .App {
   position: relative;
   overflow-x: clip;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 
 .App > :nth-child(1) {
-  background: var(--black);
+  background: linear-gradient(270deg,  #4c4d4c 0%,#dbdada 100%);
   position: relative;
 }
 
@@ -13,7 +13,7 @@
   position: absolute;
   width: 20rem;
   height: 20rem;
-  background: rgba(255, 255, 255, 0.522);
+  background: rgb(255, 255, 255);
   filter: blur(100px);
   border-radius: 100px;
 }

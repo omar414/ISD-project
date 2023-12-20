@@ -4,13 +4,13 @@ import useProperties from "../../hooks/useProperties";
 import { PuffLoader } from "react-spinners";
 import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import SearchBar from "../../components/search bar/SearchBar";
-const Properties = () => {
+const properties = () => {
   const { data, isError, isLoading } = useProperties();
   const [filter, setFilter] = useState("");
   if (isError) {
     return (
       <div className="wrapper">
-        <span>Error while fetching data</span>
+        <span>Error while fetching dataaaaaaaaa</span>
       </div>
     );
   }
@@ -54,4 +54,4 @@ const Properties = () => {
   );
 };
 
-export default Properties;
+export default properties;

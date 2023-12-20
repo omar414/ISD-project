@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import "./Residencies.css";
 import useProperties from '../../hooks/useProperties'
-import data from "../../utils/slider.json";
+
 import { sliderSettings } from "../../utils/common";
 import PropertyCard from "../PropertyCard/PropertyCard";
 import { PuffLoader } from "react-spinners";
@@ -34,8 +34,8 @@ const Residencies = () => {
     <section className="r-wrapper">
       <div className="paddings innerWidth r-container">
         <div className="r-head flexColStart">
-          <span className="orangeText">Best Choices</span>
-          <span className="primaryText">Popular Residencies</span>
+          <span className="orangeText">Recently added</span>
+          <span className="primaryText">Popular Residencies for Rent</span>
         </div>
 
         <Swiper {...sliderSettings}>

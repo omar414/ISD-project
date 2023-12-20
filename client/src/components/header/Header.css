@@ -1,19 +1,27 @@
 .h-wrapper{
    top:0;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     z-index: 99;
+}
+
+.logo1{
+    border-radius: 5px;
+    display: flex;
+    height: 40px;
+    width: 100%;
 }
 
 .h-container{
     justify-content: space-between;
     padding-top: 1rem ;
     padding-bottom: 1rem;
-    color: var(--secondary);
+    color: black;
+    font-size: 20px;
 }
 
 .h-menu{
-    gap: 2rem;
-
+    gap: 3rem;
 }
 
 .h-menu>*:hover{

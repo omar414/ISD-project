@@ -2,9 +2,12 @@
     gap: 2rem;
 }
 .properties-container .search-bar{
+    position: relative;
+    top: 40px;
     width: clamp(12rem, 100%, 28rem);
     border-radius: 30px;
     border: 1px solid rgba(120, 120, 120, 0.374);
+    text-decoration: none;
     flex-wrap: nowrap;
 }
 
@@ -16,4 +19,5 @@
 
 .properties-container .search-bar input{
     width: 70%;
+    padding: 1rem;
 }

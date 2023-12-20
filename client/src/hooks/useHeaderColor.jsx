@@ -5,8 +5,8 @@ const [headerColor, setHeaderColor] = useState(false)
   //to handle shadow of header
   useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 8) {
-        setHeaderColor("#302e2e")
+      if (window.scrollY > 10) {
+        setHeaderColor("white")
       } else {
         setHeaderColor("none");
       }

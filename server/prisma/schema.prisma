@@ -15,6 +15,8 @@ model user {
     bookedVisits     Json[]
     favResidenciesID String[]    @db.ObjectId
     ownedResidencies Residency[] @relation("Owner")
+    residencies      ResidencyForSale[] @relation("ResidencyOwner")
+
 }
 
 model Residency {
@@ -34,3 +36,23 @@ model Residency {
 
     @@unique(fields: [address, userEmail,id])
 }
+
+
+model ResidencyForSale {
+    id          String    @id @default(auto()) @map("_id") @db.ObjectId 
+    title       String
+    description String
+    price       Int
+    address     String
+    city        String
+    country     String
+    images      String 
+    facilities  Json
+    userEmail   String
+    ownertwo    user     @relation("ResidencyOwner", fields: [userEmail], references: [email])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    @@unique(fields: [address, userEmail,id])
+}
+

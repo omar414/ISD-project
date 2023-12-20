@@ -6,6 +6,13 @@
     gap: 1rem;
 }
 
+.logo2{
+    border-radius: 5px;
+    display: flex;
+    height: 50px;
+    width: 40%;
+}
+
 .f-menu{
     gap: 1.5rem;
     margin-top: 1.5rem;

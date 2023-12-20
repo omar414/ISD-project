@@ -10,10 +10,14 @@ import { useMutation } from "react-query";
 import { createUser } from "../../utils/api";
 import useFavourites from "../../hooks/useFavourites";
 import useBookings from "../../hooks/useBookings";
+import useFavouritesForSale from "../../hooks/useFavouritesForSale";
+import useBookingsForSale from "../../hooks/useBookingsForSale";
 
 const Layout = () => {
   useFavourites();
   useBookings();
+  useFavouritesForSale();
+  useBookingsForSale();
   const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
 

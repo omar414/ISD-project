@@ -15,6 +15,12 @@ const ProfileMenu = ({user,logout}) => {
             <Menu.Item onClick={()=>navigate("./Bookings",{replace:true})}>
                 Booking
             </Menu.Item>
+            <Menu.Item onClick={()=>navigate("./Sale",{replace:true})}>
+                Booking For Sale
+            </Menu.Item>
+            <Menu.Item onClick={()=>navigate("./FSale",{replace:true})}>
+                Favorites For Sale
+            </Menu.Item>
             <Menu.Item onClick={()=>{
                 localStorage.clear();
                 logout();

@@ -16,13 +16,7 @@ const Value = () => {
   return (
     <section className="v-wrapper">
       <div className="paddings innerWidth flexCenter v-container">
-        {/* left side */}
-        <div className="v-left">
-          <div className="image-container">
-            <img src="./value.png" alt="" />
-          </div>
-        </div>
-        {/* right side */}
+        {/* right left */}
         <div className="flexColStart v-right">
           <span className="orangeText">Our Value</span>
           <span className="primaryText">Value We Give to You</span>
@@ -66,6 +60,13 @@ const Value = () => {
             })}
           </Accordion>
         </div>
+        {/* right side */}
+        <div className="v-left">
+          <div className="image-container">
+            <img src="./b.png" alt="" />
+          </div>
+        </div>
+        
       </div>
     </section>
   );

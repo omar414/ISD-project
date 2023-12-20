@@ -9,9 +9,13 @@ width:100%;
 
 }   
 
+
 .c-left{
     gap:0.5rem;
 }
+
+
+
 
 .contactModes{
     margin-top: 2rem;
@@ -23,7 +27,8 @@ width:100%;
 
 }
 .mode{
-    width: 16rem;
+    width: 40rem;
+    height: 20rem;
     padding: 1rem;
     border: 0.8px solid rgba(128,128,128,0.143);
     border-radius: 5px;
@@ -31,7 +36,7 @@ width:100%;
     transition: all 300ms ease-in;
 }
 .mode .button{
-    width: 100%;
+    width: 70%;
     background:var(--lightBlue);
     color: var(--blue);
     font-size: 0.9rem;
@@ -39,8 +44,8 @@ width:100%;
 }
 
 .mode >:nth-child(1){
-    width: 100%;
-    gap:1.6rem;
+    position: relative;
+    top: 0;
 
 }
 
