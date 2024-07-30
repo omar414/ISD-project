@@ -10,13 +10,13 @@ const ProfileMenu = ({user,logout}) => {
         </Menu.Target>
         <Menu.Dropdown>
             <Menu.Item  onClick={()=>navigate("./Favourites",{replace:true})}>
-                Favourites
+                Favourites For Rent
             </Menu.Item>
             <Menu.Item onClick={()=>navigate("./Bookings",{replace:true})}>
-                Booking
+                Bookings
             </Menu.Item>
             <Menu.Item onClick={()=>navigate("./Sale",{replace:true})}>
-                Booking For Sale
+                Bought Properties
             </Menu.Item>
             <Menu.Item onClick={()=>navigate("./FSale",{replace:true})}>
                 Favorites For Sale

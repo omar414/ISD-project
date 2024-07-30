@@ -37,14 +37,14 @@ const ResidenciesForSale = () => {
     <section className="r-wrapper">
       <div className="paddings innerWidth r-container">
         <div className="r-head flexColStart">
-          <span className="orangeText">Recently added</span>
+          <span className="grayText">Recently added</span>
           <span className="primaryText">Popular Residencies for Sale</span>
         </div>
 
         <Swiper {...sliderSettings}>
           <SliderButtons/>
         
-           {/* slider */}
+     
            
           {data.slice(0,8).map((card, i) => (
             <SwiperSlide key={i}>

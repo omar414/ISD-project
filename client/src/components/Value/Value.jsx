@@ -18,7 +18,7 @@ const Value = () => {
       <div className="paddings innerWidth flexCenter v-container">
         {/* right left */}
         <div className="flexColStart v-right">
-          <span className="orangeText">Our Value</span>
+          <span className="grayText">Our Value</span>
           <span className="primaryText">Value We Give to You</span>
           <span className="secondaryText">
             We always ready to help by providijng the best services for you.
@@ -63,7 +63,7 @@ const Value = () => {
         {/* right side */}
         <div className="v-left">
           <div className="image-container">
-            <img src="./b.png" alt="" />
+            <img src="./image.png" alt="" />
           </div>
         </div>
         

@@ -132,3 +132,5 @@ export const getResidencyForSale = asyncHandler(async (req,res) => {
       throw new  Error(err.message)
   }
 })
+
+

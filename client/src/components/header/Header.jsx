@@ -38,7 +38,7 @@ const Header = () => {
       <div className="flexCenter paddings innerWidth h-container">
         <NavLink to="/">
           <Tilt>
-            <img className="logo1" src="./logoMD.png" alt="logo" width={100} />
+            <img className="logo1" src="./logoo2.jpg" alt="logo" width={100} />
           </Tilt>
         </NavLink>
         <OutsideClickHandler

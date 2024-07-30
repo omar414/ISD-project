@@ -15,6 +15,7 @@ import UserDetailContext from "../../Context/UserDetailsContext";
 import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
 import Heart from "../../components/Heart/Heart";
+import { set } from "lodash";
 const PropertyForSale = () => {
   const { pathname } = useLocation();
   const id = pathname.split("/").slice(-1)[0];
@@ -36,7 +37,13 @@ const {mutate:cancelBooking,isLoading:cancelling}=useMutation({
     toast.success("Booking cancelled", { position: "bottom-right" });
   }
 })
-const [modalOpened,setModalOpened] = useState(false)
+const [content, setContent] = useState('Buy this Property');
+const [style, setStyle] = useState({backgroundColor: '#4066ff',fontWeight: 500,padding:  10,color: 'white',border: 'none',borderRadius: 4,width:550});
+const changeContentAndStyle = () => {
+  setContent('Purchased Successfully');
+  setStyle({backgroundColor: 'white',fontWeight: 500,padding:  10,color: 'green',border: '1px solid green',borderRadius: 4,width:550})
+};
+// const [modalOpenedForSale,setModalOpenedForSale] = useState(false)
 const {validateLogin}= useAuthCheck()
 const {user} = useAuth0()
   if (isLoading) {
@@ -74,7 +81,7 @@ const {user} = useAuth0()
             {/* head */}
             <div className="flexStart head">
               <span className="primaryText">{data?.title}</span>
-              <span className="orangeText" style={{ fontSize: "1.5rem" }}>
+              <span className="grayText" style={{ fontSize: "1.5rem" }}>
                 $ {data?.price}
               </span>
             </div>
@@ -114,7 +121,7 @@ const {user} = useAuth0()
               </span>
             </div>
             {/* booking button */}
-           { bookings?.map((bookings)=>bookings.id).includes(id)?(
+           {/* { bookings?.map((bookings)=>bookings.id).includes(id)?(
             <>
            <Button
                   variant="outline"
@@ -131,18 +138,19 @@ const {user} = useAuth0()
                 </span> 
             </>
            ):(
-            <button className="button"
-            onClick={()=>{
-              validateLogin() && setModalOpened(true)
-            }}
-            >Booking your visit</button>)}
+           
 
             <BookingModle
-            opened={modalOpened}
-            setOpened={setModalOpened}
-            propertyId={id}
+            opened={modalOpenedForSale}
+            setOpened={setModalOpenedForSale}
+            propertyIdForSale={id}
             email={user?.email}
-            />
+            /> */}
+             <button
+              // className="button"
+             style={style}
+              onClick={changeContentAndStyle}
+            ><div >{content}</div></button>
           </div>
 
           {/* right side */}

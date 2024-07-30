@@ -1,16 +1,77 @@
+// import React, { useState } from "react";
+// import "./Properties.css";
+// import useProperties from "../../hooks/useProperties";
+// import { PuffLoader } from "react-spinners";
+// import PropertyCard from "../../components/PropertyCard/PropertyCard";
+// import SearchBar from "../../components/search bar/SearchBar";
+// const properties = () => {
+//   const { data, isError, isLoading } = useProperties();
+//   const [filter, setFilter] = useState("");
+//   if (isError) {
+//     return (
+//       <div className="wrapper">
+//         <span>Error while fetching data</span>
+//       </div>
+//     );
+//   }
+
+//   if (isLoading) {
+//     return (
+//       <div className="wrapper flexCenter" style={{ height: "60vh" }}>
+//         <PuffLoader
+//           height="80"
+//           width="80"
+//           radius={1}
+//           color="#4066ff"
+//           aria-label="puff-loading"
+//         />
+//       </div>
+//     );
+//   }
+//   return (
+//     <div className="wrapper">
+//       <div className="flexColCenter paddings innerWidth properties-container">
+//         <SearchBar filter={filter} setFilter={setFilter} />
+
+//         <div className="paddings flexCenter properties">
+//           {
+            
+
+//             data
+//               .filter(
+//                 (property) =>
+//                   property.title.toLowerCase().includes(filter.toLowerCase()) ||
+//                   property.city.toLowerCase().includes(filter.toLowerCase()) ||
+//                   property.country.toLowerCase().includes(filter.toLowerCase())
+//               )
+//               .map((card, i) => (
+//                 <PropertyCard card={card} key={i} />
+//               ))
+//           }
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default properties;
+
+
 import React, { useState } from "react";
 import "./Properties.css";
 import useProperties from "../../hooks/useProperties";
 import { PuffLoader } from "react-spinners";
 import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import SearchBar from "../../components/search bar/SearchBar";
-const properties = () => {
+
+const Properties = () => {
   const { data, isError, isLoading } = useProperties();
   const [filter, setFilter] = useState("");
+
   if (isError) {
     return (
       <div className="wrapper">
-        <span>Error while fetching dataaaaaaaaa</span>
+        <span>Error while fetching data</span>
       </div>
     );
   }
@@ -28,6 +89,10 @@ const properties = () => {
       </div>
     );
   }
+
+  // Debugging line to check the fetched data
+  console.log("Fetched properties data:", data);
+
   return (
     <div className="wrapper">
       <div className="flexColCenter paddings innerWidth properties-container">
@@ -35,18 +100,18 @@ const properties = () => {
 
         <div className="paddings flexCenter properties">
           {
-            // data.map((card, i)=> (<PropertyCard card={card} key={i}/>))
-
-            data
-              .filter(
-                (property) =>
-                  property.title.toLowerCase().includes(filter.toLowerCase()) ||
-                  property.city.toLowerCase().includes(filter.toLowerCase()) ||
-                  property.country.toLowerCase().includes(filter.toLowerCase())
-              )
-              .map((card, i) => (
-                <PropertyCard card={card} key={i} />
-              ))
+            data.length > 0
+              ? data
+                  .filter(
+                    (property) =>
+                      property.title.toLowerCase().includes(filter.toLowerCase()) ||
+                      property.city.toLowerCase().includes(filter.toLowerCase()) ||
+                      property.country.toLowerCase().includes(filter.toLowerCase())
+                  )
+                  .map((card, i) => (
+                    <PropertyCard card={card} key={i} />
+                  ))
+              : <span>No properties found</span> // Handle case when no properties are found
           }
         </div>
       </div>
@@ -54,4 +119,4 @@ const properties = () => {
   );
 };
 
-export default properties;
+export default Properties;

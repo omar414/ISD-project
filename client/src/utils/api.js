@@ -4,7 +4,7 @@ import {toast} from 'react-toastify'
 
 
 export const api =axios.create({
-    baseURL:"http://localhost:8000/api"
+    baseURL:"https://isd-project.onrender.com/api"
 })
 
 export const getAllProperties = async() => {
@@ -19,6 +19,22 @@ export const getAllProperties = async() => {
         throw error
     }
 }
+
+// export const getAllProperties = async () => {
+//   try {
+//     const response = await api.get("/residency/allresd");
+//     console.log('API response:', response.data); // Debugging line
+//     if (response.status === 400 || response.status === 500) {
+//       throw response.data;
+//     }
+//     return response.data;
+//   } catch (error) {
+//     console.error('API error:', error); // Debugging line
+//     toast.error("Something went wrong ");
+//     throw error;
+//   }
+// };
+
 export const getAllPropertiesForSale = async() => {
   try{
       const response =await api.get("/residencyy/allresd",{timeout:10*1000,})

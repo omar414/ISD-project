@@ -6,7 +6,7 @@ import UserDetailContext from '../../Context/UserDetailsContext';
 import { bookVisitForSale } from '../../utils/api';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
-const BookingModleForSale = ({opened,setOpened,email,propertyId}) => {
+const BookingModleForSale = ({openedForSale,setOpenedForSale,email,propertyIdForSale}) => {
 
     const [value, setValue] = useState(null);
     const {
@@ -15,7 +15,7 @@ const BookingModleForSale = ({opened,setOpened,email,propertyId}) => {
       } = useContext(UserDetailContext);
     
 
-      const handleBookingSuccess = () => {
+      const handleBookingSuccessForSale = () => {
         toast.success("You have booked your visit", {
           position: "bottom-right",
         });
@@ -24,22 +24,22 @@ const BookingModleForSale = ({opened,setOpened,email,propertyId}) => {
           bookings: [
             ...prev.bookings,
             {
-              id: propertyId,
+              id: propertyIdForSale,
               date: dayjs(value).format("DD/MM/YYYY"),
             },
           ],
         }));
     }
     const { mutate, isLoading } = useMutation({
-        mutationFn: () => bookVisitForSale(value, propertyId,email,token),
-        onSuccess: () => handleBookingSuccess(),
+        mutationFn: () => bookVisitForSale(value, propertyIdForSale,email,token),
+        onSuccess: () => handleBookingSuccessForSale(),
         onError: ({ response }) => toast.error(response.data.message),
         onSettled: () => setOpened(false),
       });
   return (
     <Modal
-    opened={opened}
-    setOpened={setOpened}
+    opened={openedForSale}
+    setOpened={setOpenedForSale}
     onClose={()=>setOpened(false)}
     title="select your date of visit"
     centered
@@ -47,7 +47,7 @@ const BookingModleForSale = ({opened,setOpened,email,propertyId}) => {
       <div className="flexColCenter" style={{gap: "1rem"}}>
         <DatePicker value={value} onChange={setValue} minDate={new Date()} />
         <Button disabled={!value || isLoading} onClick={() => mutate()}>
-          Book visit
+          Buy Property
         </Button>
       </div>
     </Modal>

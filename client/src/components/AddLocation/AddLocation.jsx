@@ -90,5 +90,4 @@ const AddLocation = ({ propertyDetails, setPropertyDetails, nextStep }) => {
     </form>
   );
 };
-
 export default AddLocation;
