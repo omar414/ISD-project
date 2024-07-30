@@ -30,7 +30,7 @@ const Contact = () => {
                     <BsFillChatDotsFill size={25} />
                   </div>
                   <div className="flexColStart detail">
-                    <span className="primaryText">M.A.R.E Support</span>
+                    <span className="primaryText">luxury real-estate Support</span>
                   </div>
                 </div>
                 <div className="flexCenter button"><a href="https://wa.me/+96176119216">Chat with us</a></div>
